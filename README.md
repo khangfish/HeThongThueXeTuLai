@@ -45,7 +45,6 @@ Các tính năng chính:
 * Quản lý danh sách xe và đơn hàng (Dành cho Admin).
 * Giao diện thân thiện, tương thích nhiều thiết bị.
 
-<p align="right">(<a href="#readme-top">quay về đầu trang</a>)</p>
 
 ### Công Nghệ Sử Dụng
 
@@ -57,7 +56,6 @@ Dự án được xây dựng dựa trên các công nghệ phổ biến hiện 
 * [![MySQL][MySQL]][MySQL-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
-<p align="right">(<a href="#readme-top">quay về đầu trang</a>)</p>
 
 ## Cài Đặt & Chạy
 
