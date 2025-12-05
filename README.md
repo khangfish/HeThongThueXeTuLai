@@ -120,7 +120,6 @@ Phần này mô tả sơ lược cách dùng:
 
 Xem [danh sách các issue](https://github.com/khangfish/HeThongThueXeTuLai/issues) để biết chi tiết.
 
-<p align="right">(<a href="#readme-top">quay về đầu trang</a>)</p>
 
 ## Đóng Góp
 
@@ -132,7 +131,6 @@ Mọi đóng góp đều được hoan nghênh.
 4.  Push (`git push origin feature/TinhNangMoi`)
 5.  Mở Pull Request
 
-<p align="right">(<a href="#readme-top">quay về đầu trang</a>)</p>
 
 ## Liên Hệ
 
