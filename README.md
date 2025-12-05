@@ -101,9 +101,10 @@ Trước khi cài đặt, máy tính cần có sẵn:
 ## Hướng Dẫn Sử Dụng
 
 Phần này mô tả sơ lược cách dùng:
-1.  Đăng nhập vào hệ thống (Tài khoản admin: `admin`/`123456`).
+1.  Đăng nhập vào hệ thống.
 2.  Chọn xe và ngày muốn thuê.
 3.  Tiến hành thanh toán/đặt cọc.
+4.  Muốn vào trang admin thì chịu khó sửa lại url trên thanh tìm kiểm bổ sung thêm đuôi (/admin-login).
 
 ## Lộ Trình Phát Triển
 
