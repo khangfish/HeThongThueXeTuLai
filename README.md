@@ -10,18 +10,6 @@
 <div align="center">
   <h3 align="center">Hệ Thống Thuê Xe Tự Lái</h3>
 
-  <p align="center">
-    Website hỗ trợ người dùng tìm kiếm, đặt lịch và thuê xe tự lái nhanh chóng, tiện lợi.
-    <br />
-    <a href="https://github.com/khangfish/HeThongThueXeTuLai"><strong>Xem tài liệu »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/khangfish/HeThongThueXeTuLai">Xem Demo</a>
-    &middot;
-    <a href="https://github.com/khangfish/HeThongThueXeTuLai/issues">Báo Lỗi</a>
-    &middot;
-    <a href="https://github.com/khangfish/HeThongThueXeTuLai/issues">Yêu Cầu Tính Năng</a>
-  </p>
 </div>
 
 <details>
@@ -48,8 +36,6 @@
 </details>
 
 ## Giới Thiệu Dự Án
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 **Hệ Thống Thuê Xe Tự Lái** là một giải pháp phần mềm giúp kết nối giữa đơn vị cho thuê xe và khách hàng có nhu cầu đi lại. Dự án giải quyết các vấn đề về quản lý lịch đặt xe thủ công, giúp người dùng dễ dàng xem thông tin xe và đặt cọc trực tuyến.
 
