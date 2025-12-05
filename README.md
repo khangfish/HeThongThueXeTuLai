@@ -120,7 +120,7 @@ Xem [danh sách các issue](https://github.com/khangfish/HeThongThueXeTuLai/issu
 
 ## Đóng Góp
 
-Mọi đóng góp đều được hoan nghênh.
+Mọi đóng góp, góp ý đều quý giá để giúp tác giả phát triển hệ thống.
 
 1.  Fork dự án
 2.  Tạo Feature Branch (`git checkout -b feature/TinhNangMoi`)
