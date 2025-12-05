@@ -1,0 +1,26 @@
+/* OwnerCalendar.css */
+
+.owner-calendar-page .calendar-container {
+  border: 1px solid #ddd;
+}
+
+/* Style cho các sự kiện */
+.fc-event {
+  border: none !important;
+  font-weight: bold;
+  padding: 4px 6px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Màu cho "Đang thuê" (Màu đỏ) */
+.event-rented {
+  background-color: #dc3545 !important; 
+  border-color: #dc3545 !important;
+}
+
+/* Màu cho "Bảo dưỡng" (Màu vàng) */
+.event-maintenance {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: #333 !important; /* Chữ đen cho dễ đọc trên nền vàng */
+}

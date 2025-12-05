@@ -1,0 +1,34 @@
+.search-container {
+  position: relative;
+  width: 200px;
+}
+
+.search-input {
+  width: 100%;
+  padding-right: 35px; /* chừa chỗ cho icon */
+}
+
+.search-btn {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Bỏ gạch chân mặc định */
+ul li a {
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  color: #ffffff; /* màu chữ mặc định */
+}
+
+/* Khi hover: thêm gạch chân */
+ul li a:hover {
+  text-decoration: underline;
+  color: #ffffff; /* xám nhạt */
+}
+

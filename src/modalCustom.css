@@ -1,0 +1,79 @@
+/* ...existing code... */
+/* Minimal, consistent modal styles used by ModalWrapper + modals */
+:root{
+  --modal-backdrop: rgba(0,0,0,0.45);
+  --modal-radius: 10px;
+  --brand-green: #198754;
+}
+
+.custom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--modal-backdrop);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* dialog sizing */
+.modal-dialog {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.modal-dialog.modal-sm { max-width: 420px; }
+.modal-dialog.modal-md { max-width: 720px; }
+.modal-dialog.modal-lg { max-width: 980px; }
+
+/* content */
+.modal-content {
+  width: 100%;
+  background: #fff;
+  border-radius: var(--modal-radius);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  overflow: hidden;
+  animation: modalPop .16s ease;
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: translateY(6px) scale(.997); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header, .modal-footer {
+  padding: 0.75rem 1rem;
+  border-bottom: 0;
+  border-top: 0;
+}
+.modal-body {
+  padding: 1rem;
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* layout helpers */
+.modal-title { margin: 0; font-weight: 700; color: var(--brand-green); }
+
+/* ensure form controls fill container inside modal */
+.modal-body .form-control,
+.modal-body .form-select {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* columns inside modal should be allowed to shrink */
+.modal-body .row > [class*="col-"] { min-width: 0; }
+
+/* small screen tweaks */
+@media (max-width: 576px) {
+  .modal-dialog { margin: 0.4rem; }
+  .modal-body { max-height: calc(100vh - 120px); padding: 0.75rem; }
+}
+
+/* accessibility focus */
+.btn-close { background: transparent; border: 0; }
+.form-control:focus { border-color: var(--brand-green) !important; box-shadow: 0 0 8px rgba(25,135,84,0.12) !important; }

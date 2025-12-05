@@ -1,0 +1,147 @@
+#ownerBranches-page {
+  display: flex;
+  height: calc(100vh - 80px);
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+}
+
+/* Left list panel */
+#ownerBranches-left {
+  width: 300px;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  background: #fff;
+}
+
+#ownerBranches-left h2 {
+  color: #198754;
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+
+#ownerBranches-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+
+#ownerBranches-list li {
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+#ownerBranches-list li:hover {
+  background-color: #f5f5f5;
+}
+
+.branch-name { font-weight: bold; }
+.branch-meta { font-size: 0.9em; color: #555; }
+.branchModal-row { display: flex; justify-content: space-between; gap: 20px; }
+.primary-btn { padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.secondary-btn { padding: 8px 12px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.primary-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+
+/* Map panel */
+#ownerBranches-map {
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Modal common */
+#ownerBranches-branchModalBackdrop,
+#ownerBranches-pickModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; 
+}
+
+#ownerBranches-branchModal,
+#ownerBranches-pickModal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 700px;
+  z-index: 1051; 
+  position: relative; 
+}
+
+/* Branch modal specific */
+#ownerBranches-branchModal h3 { color: #198754; margin: 6px 0 12px; }
+.branchModal-row { display:flex; justify-content:space-between; gap:18px; }
+.branch-cars { margin-top: 12px; }
+
+.branch-cars table { width: 100%; border-collapse: collapse; }
+.branch-cars th, .branch-cars td { padding: 8px; border-bottom: 1px solid #f1f1f1; text-align:left; }
+.branch-cars th { background: #f8faf8; color: #0b6623; }
+
+/* Pick modal map */
+#ownerBranches-pickMap {
+  width: 100%;
+  height: 360px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.primary-btn {
+  background: #198754; color: #fff; border: none; padding: 10px 14px; border-radius: 8px; cursor:pointer; font-weight:600;
+}
+.secondary-btn {
+  background:#f1f3f5; color:#212529; border:none; padding: 10px 14px; border-radius:8px; cursor:pointer; font-weight:600;
+}
+.mini-btn {
+  padding:6px 8px; border-radius:6px; border:none; cursor:pointer; background:#e9fff0; color:#0b6623; font-weight:600;
+}
+
+/* small toast message */
+#ownerBranches-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  background: #198754;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(25,135,84,0.18);
+  z-index: 200;
+}
+
+/* === (MỚI) Style cho Popup luôn mở === */
+.permanent-popup .leaflet-popup-content-wrapper {
+  background: #ffffff;
+  border: 2px solid #198754;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+.permanent-popup .leaflet-popup-content {
+  margin: 10px;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+/* Xóa cái đuôi tam giác */
+.permanent-popup .leaflet-popup-tip {
+  display: none;
+}

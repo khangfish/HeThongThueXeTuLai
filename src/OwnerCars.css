@@ -1,0 +1,41 @@
+/* OwnerCars.css */
+
+/* Hầu hết các style đã bị xóa bỏ để sử dụng class Bootstrap gốc.
+  Chúng ta chỉ giữ lại các style tùy chỉnh nhỏ, không xung đột.
+*/
+
+/* Tinh chỉnh này giúp các modal không bị nhảy khi thanh cuộn xuất hiện/biến mất,
+  và đảm bảo alert/toast luôn ở trên cùng.
+*/
+body.modal-open {
+  padding-right: 0 !important;
+}
+
+.alert {
+  z-index: 1056; /* Đảm bảo alert nổi trên modal-backdrop (1055) */
+}
+
+/* File: OwnerCars.css */
+/* ... (giữ nguyên style .modal-open và .alert) ... */
+
+/* (MỚI) Thêm các style này vào cuối file */
+
+.owner-calendar-modal-container .fc-event {
+  border: none !important;
+  font-weight: bold;
+  padding: 4px 6px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Màu cho "Đang thuê" (Màu đỏ) */
+.owner-calendar-modal-container .event-rented {
+  background-color: #dc3545 !important; 
+  border-color: #dc3545 !important;
+}
+
+/* Màu cho "Bảo dưỡng" (Màu vàng) */
+.owner-calendar-modal-container .event-maintenance {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: #333 !important; /* Chữ đen cho dễ đọc trên nền vàng */
+}

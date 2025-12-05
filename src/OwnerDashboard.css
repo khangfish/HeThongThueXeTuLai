@@ -1,0 +1,45 @@
+/* (SỬA) Đặt font chữ chung và màu nền */
+.owner-dashboard {
+  background-color: #f8f9fa; /* Màu nền nhạt hơn */
+  min-height: calc(100vh - 70px); /* Đảm bảo chiều cao (trừ navbar) */
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+
+/* (SỬA) Thẻ thống kê */
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(25, 135, 84, 0.1);
+}
+
+.stat-card h6 {
+  font-weight: 600;
+  color: #555; /* Chữ đậm hơn */
+}
+
+/* (SỬA) Thẻ Biểu đồ / Danh sách */
+.chart-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  height: 100%; /* (MỚI) Giúp các thẻ cao bằng nhau */
+}
+
+/* (SỬA) Danh sách Top */
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #f0f0f0; /* Đường kẻ nhạt hơn */
+  padding: 1rem;
+}
+.list-group-item:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,42 @@
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.admin-header {
+  z-index: 1030;
+}
+
+.admin-nav {
+  z-index: 1029;
+  top: 0;
+  border-bottom: 1px solid #dee2e6;
+  background-color: #fff !important;
+}
+
+/* (SỬA) Style cho 5 tabs */
+.admin-nav .nav-link {
+  color: #333;
+  font-weight: 600;
+  padding: 0.6rem 0.5rem; /* Giảm padding */
+  font-size: 0.9rem; /* Giảm cỡ chữ */
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  white-space: nowrap; /* Chống xuống dòng */
+}
+.admin-nav .nav-link.active {
+  color: #198754;
+  border-bottom-color: #198754 !important;
+  background-color: #fff !important;
+}
+
+.admin-content {
+  flex-grow: 1;
+}
+
+/* Style cho bảng trong tab Users */
+.table-responsive thead.sticky-top {
+  top: -1px; 
+}
