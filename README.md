@@ -100,8 +100,8 @@ Trước khi cài đặt, máy tính cần có sẵn:
     # Nếu dự án tách riêng client/server, hãy cd vào từng thư mục để npm install
     ```
 3.  **Cấu hình Cơ sở dữ liệu (Database)**
-    * Tạo một database trống trong MySQL tên là: `thue_xe_db` (hoặc tên tùy ý ông).
-    * Import file `.sql` (nếu có trong source code) vào database vừa tạo để có dữ liệu mẫu.
+    * Tạo một database trống trong MySQL tên là: `httxtl` (hoặc có thể cấu hình lại bằng cách chỉnh lại trong file db.js).
+    * Import file `.sql` vào database vừa tạo để có dữ liệu mẫu.
     
 4.  **Cấu hình môi trường**
     * Dự án đã bao gồm sẵn file `.env` chứa cấu hình kết nối. 
