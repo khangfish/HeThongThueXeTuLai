@@ -37,7 +37,7 @@
 
 ## Giới Thiệu Dự Án
 
-**Hệ Thống Thuê Xe Tự Lái** là một giải pháp phần mềm giúp kết nối giữa đơn vị cho thuê xe và khách hàng có nhu cầu đi lại. Dự án giải quyết các vấn đề về quản lý lịch đặt xe thủ công, giúp người dùng dễ dàng xem thông tin xe và đặt cọc trực tuyến.
+**Hệ Thống Thuê Xe Tự Lái** là một giải pháp phần mềm giúp kết nối giữa đơn vị cho thuê xe và khách hàng có nhu cầu đi lại. Dự án giải quyết các vấn đề về quản lý lịch đặt xe thủ công, giúp người dùng dễ dàng xem thông tin xe và đặt cọc trực tuyến. Đề tài luận văn này vẫn còn rất nhiều thiếu sót.
 
 Các tính năng chính:
 * Tìm kiếm xe theo loại, mức giá, hãng xe.
@@ -59,7 +59,7 @@ Dự án được xây dựng dựa trên các công nghệ phổ biến hiện 
 
 ## Cài Đặt & Chạy
 
-Dưới đây là hướng dẫn để ông (hoặc người khác) tải source code về và chạy được trên máy cá nhân.
+Dưới đây là hướng dẫn để tải source code về và chạy được trên máy cá nhân.
 
 ### Yêu Cầu
 
@@ -104,9 +104,6 @@ Phần này mô tả sơ lược cách dùng:
 1.  Đăng nhập vào hệ thống (Tài khoản admin: `admin`/`123456` - ví dụ).
 2.  Chọn xe và ngày muốn thuê.
 3.  Tiến hành thanh toán/đặt cọc.
-
-*(Ông có thể thêm ảnh chụp màn hình giao diện ở đây sau)*
-
 
 ## Lộ Trình Phát Triển
 
