@@ -101,11 +101,11 @@ Trước khi cài đặt, máy tính cần có sẵn:
     ```
 3.  **Cấu hình Cơ sở dữ liệu (Database)**
     * Tạo một database trống trong MySQL tên là: `httxtl` (hoặc có thể cấu hình lại bằng cách chỉnh lại trong file db.js).
-    * Import file `.sql` vào database vừa tạo để có dữ liệu mẫu.
+    * Import file `httxtl-sql.sql` vào database vừa tạo để có dữ liệu mẫu(còn nếu muốn tự tạo dữ liệu thì sài file httxtl.sql).
     
 4.  **Cấu hình môi trường**
-    * Dự án đã bao gồm sẵn file `.env` chứa cấu hình kết nối. 
-    * *Lưu ý:* Nếu máy ông có mật khẩu MySQL khác, hãy mở file `.env` và sửa lại dòng `DB_PASSWORD`.
+    * Dự án có file `db.js` chứa cấu hình kết nối. 
+    * *Lưu ý:* Nếu máy có mật khẩu MySQL khác, hãy mở file `.env` và sửa lại dòng `DB_PASSWORD`.
 
 5.  **Chạy dự án**
     ```sh

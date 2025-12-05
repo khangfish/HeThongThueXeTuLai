@@ -1,0 +1,537 @@
+CREATE DATABASE  IF NOT EXISTS `httxtl` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `httxtl`;
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
+--
+-- Host: localhost    Database: httxtl
+-- ------------------------------------------------------
+-- Server version	8.0.42
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `admin` (
+  `ADMIN_ID` int NOT NULL AUTO_INCREMENT,
+  `ADMIN_TAIKHOAN` varchar(255) NOT NULL,
+  `ADMIN_MATKHAU` varchar(255) NOT NULL,
+  `ADMIN_HOTEN` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ADMIN_ID`),
+  UNIQUE KEY `ADMIN_TAIKHOAN` (`ADMIN_TAIKHOAN`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'admin','123456','Quản Trị Viên');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ban_ghi_tinh_trang`
+--
+
+DROP TABLE IF EXISTS `ban_ghi_tinh_trang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ban_ghi_tinh_trang` (
+  `XE_MAXE` char(5) NOT NULL,
+  `TTX_MATTX` int NOT NULL,
+  `CNTX_MACNTX` int NOT NULL,
+  `BGTT_NGAYGIOBATDAU` datetime NOT NULL,
+  `BGTT_NGAYGIOKETTHUC` datetime DEFAULT NULL,
+  PRIMARY KEY (`XE_MAXE`,`TTX_MATTX`,`CNTX_MACNTX`,`BGTT_NGAYGIOBATDAU`),
+  KEY `FK_RELATIONSHIP_17` (`TTX_MATTX`),
+  KEY `FK_RELATIONSHIP_18` (`CNTX_MACNTX`),
+  CONSTRAINT `FK_RELATIONSHIP_16` FOREIGN KEY (`XE_MAXE`) REFERENCES `xe` (`XE_MAXE`),
+  CONSTRAINT `FK_RELATIONSHIP_17` FOREIGN KEY (`TTX_MATTX`) REFERENCES `tinh_trang_xe` (`TTX_MATTX`),
+  CONSTRAINT `FK_RELATIONSHIP_18` FOREIGN KEY (`CNTX_MACNTX`) REFERENCES `chi_nhanh_thue_xe` (`CNTX_MACNTX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ban_ghi_tinh_trang`
+--
+
+LOCK TABLES `ban_ghi_tinh_trang` WRITE;
+/*!40000 ALTER TABLE `ban_ghi_tinh_trang` DISABLE KEYS */;
+INSERT INTO `ban_ghi_tinh_trang` VALUES ('X001',1,1,'2025-09-23 14:17:44',NULL),('X002',1,2,'2025-09-23 14:17:44',NULL),('X0029',1,9,'2025-11-14 15:17:24','2025-11-14 15:29:24'),('X0029',1,9,'2025-11-23 15:48:05',NULL),('X0029',3,9,'2025-11-14 15:29:24','2025-11-23 15:48:05'),('X003',3,3,'2025-09-23 14:17:44',NULL),('X0030',1,9,'2025-11-14 16:10:47','2025-11-15 20:35:00'),('X0030',1,9,'2025-11-15 20:35:14','2025-11-23 15:22:52'),('X0030',1,9,'2025-11-23 16:51:35','2025-11-23 16:51:43'),('X0030',1,9,'2025-11-23 16:57:34','2025-11-23 16:57:48'),('X0030',1,9,'2025-11-23 19:20:48','2025-11-23 19:22:16'),('X0030',2,9,'2025-11-17 00:00:00','2025-11-22 23:59:59'),('X0030',2,9,'2025-11-24 00:00:00','2025-11-25 23:59:59'),('X0030',3,9,'2025-11-15 20:35:00','2025-11-15 20:35:14'),('X0030',3,9,'2025-11-23 15:22:52','2025-11-23 16:51:35'),('X0030',3,9,'2025-11-23 16:51:43','2025-11-23 16:57:34'),('X0030',3,9,'2025-11-23 16:57:48','2025-11-23 19:20:48'),('X0030',3,9,'2025-11-23 19:22:16',NULL),('X0031',1,9,'2025-11-23 15:36:29','2025-11-27 18:42:00'),('X0031',1,9,'2025-11-29 07:48:00',NULL),('X0031',2,9,'2025-11-24 00:00:00','2025-11-28 23:59:59'),('X0031',2,9,'2025-11-27 18:42:00','2025-11-29 07:48:00'),('X0032',1,9,'2025-11-23 19:15:01',NULL),('X0033',1,9,'2025-11-23 19:20:10',NULL),('X0033',2,9,'2025-12-08 00:00:00','2025-12-11 23:59:59'),('X004',1,4,'2025-10-08 15:18:07',NULL),('X004',2,4,'2025-11-01 10:08:00','2025-11-02 10:08:00'),('X004',2,4,'2025-11-04 08:16:00','2025-11-05 08:16:00'),('X004',2,4,'2025-11-05 17:00:00','2025-11-05 17:00:00'),('X005',1,2,'2025-09-23 14:19:05',NULL),('X006',3,3,'2025-09-23 14:19:05',NULL),('X007',1,2,'2025-09-23 14:19:05',NULL),('X008',1,3,'2025-09-23 14:19:05',NULL),('X008',2,3,'2025-12-08 00:00:00','2025-12-12 23:59:59'),('X009',1,4,'2025-10-08 15:18:07',NULL),('X010',1,2,'2025-10-08 15:18:07',NULL),('X011',1,6,'2025-10-08 15:18:07',NULL),('X012',1,1,'2025-10-08 15:18:07',NULL),('X013',1,5,'2025-10-08 15:18:07',NULL),('X014',1,3,'2025-10-08 15:18:07',NULL),('X015',1,6,'2025-10-08 15:18:07',NULL),('X016',1,2,'2025-10-08 15:18:07',NULL),('X017',1,4,'2025-10-08 15:18:07',NULL),('X017',2,4,'2025-11-01 15:20:00','2025-11-02 15:20:00'),('X018',1,1,'2025-10-08 15:18:07',NULL),('X019',1,3,'2025-10-08 15:18:07',NULL),('X020',1,5,'2025-10-08 15:18:07',NULL),('X021',1,2,'2025-10-08 15:18:07',NULL),('X022',1,6,'2025-10-08 15:18:07',NULL),('X023',1,4,'2025-10-08 15:18:07',NULL),('X023',2,4,'2025-11-05 00:00:00','2025-11-06 23:59:59'),('X023',2,4,'2025-11-16 00:00:00','2025-11-19 23:59:59'),('X024',3,1,'2025-10-08 15:18:07',NULL),('X025',3,6,'2025-10-08 15:18:07',NULL),('X026',3,5,'2025-10-08 15:18:07',NULL),('X027',3,2,'2025-10-08 15:18:07',NULL),('X028',3,3,'2025-10-08 15:18:07',NULL);
+/*!40000 ALTER TABLE `ban_ghi_tinh_trang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bang_gia`
+--
+
+DROP TABLE IF EXISTS `bang_gia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bang_gia` (
+  `XE_MAXE` char(5) NOT NULL,
+  `BG_GIATHUETHEONGAY` int NOT NULL,
+  `BG_NGAYGIOAPDUNG` datetime NOT NULL,
+  `BG_NGAYGIONGUNGAPDUNG` datetime DEFAULT NULL,
+  `CX_MACX` int NOT NULL,
+  PRIMARY KEY (`XE_MAXE`,`CX_MACX`,`BG_NGAYGIOAPDUNG`),
+  KEY `FK_CX_XE_idx` (`CX_MACX`),
+  CONSTRAINT `FK_CX_XE` FOREIGN KEY (`CX_MACX`) REFERENCES `chu_xe` (`CX_MACX`),
+  CONSTRAINT `FK_RELATIONSHIP_24` FOREIGN KEY (`XE_MAXE`) REFERENCES `xe` (`XE_MAXE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bang_gia`
+--
+
+LOCK TABLES `bang_gia` WRITE;
+/*!40000 ALTER TABLE `bang_gia` DISABLE KEYS */;
+INSERT INTO `bang_gia` VALUES ('X001',800000,'2025-09-23 14:17:44',NULL,1),('X002',500000,'2025-09-23 14:17:44',NULL,2),('X0029',900000,'2025-11-14 15:17:24','2025-11-23 15:47:55',7),('X0029',1200000,'2025-11-23 15:47:55',NULL,7),('X003',700000,'2025-09-23 14:17:44',NULL,3),('X0030',1000000,'2025-11-14 16:10:47','2025-11-14 16:12:21',7),('X0030',1500000,'2025-11-14 16:12:21','2025-11-14 16:50:57',7),('X0030',1500000,'2025-11-14 16:50:57','2025-11-14 16:52:43',7),('X0030',500000,'2025-11-14 16:52:43','2025-11-16 19:42:13',7),('X0030',800000,'2025-11-16 19:42:13',NULL,7),('X0031',2500000,'2025-11-23 15:36:29','2025-11-23 15:36:46',7),('X0031',2500000,'2025-11-23 15:36:46',NULL,7),('X0032',1800000,'2025-11-23 19:15:01',NULL,7),('X0033',2000000,'2025-11-23 19:20:10',NULL,7),('X004',1200000,'2025-09-23 14:19:05',NULL,4),('X005',600000,'2025-09-23 14:19:05',NULL,5),('X006',900000,'2025-09-23 14:19:05',NULL,6),('X007',850000,'2025-09-23 14:19:05',NULL,1),('X008',550000,'2025-09-23 14:19:05',NULL,2),('X009',850000,'2025-10-08 15:01:02',NULL,3),('X010',520000,'2025-10-08 15:01:02',NULL,4),('X011',730000,'2025-10-08 15:01:02',NULL,5),('X012',1200000,'2025-10-08 15:01:02',NULL,6),('X013',600000,'2025-10-08 15:01:02',NULL,1),('X014',940000,'2025-10-08 15:01:02',NULL,2),('X015',870000,'2025-10-08 15:01:02',NULL,3),('X016',580000,'2025-10-08 15:01:02',NULL,4),('X017',720000,'2025-10-08 15:01:02',NULL,5),('X018',1080000,'2025-10-08 15:01:02',NULL,6),('X019',650000,'2025-10-08 15:01:02',NULL,1),('X020',930000,'2025-10-08 15:01:02',NULL,2),('X021',800000,'2025-10-08 15:01:02',NULL,3),('X022',560000,'2025-10-08 15:01:02',NULL,4),('X023',740000,'2025-10-08 15:01:02',NULL,5),('X024',970000,'2025-10-08 15:01:02',NULL,6),('X025',630000,'2025-10-08 15:01:02',NULL,1),('X026',890000,'2025-10-08 15:01:02',NULL,2),('X027',770000,'2025-10-08 15:01:02',NULL,3),('X028',550000,'2025-10-08 15:01:02',NULL,4);
+/*!40000 ALTER TABLE `bang_gia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `chi_nhanh_thue_xe`
+--
+
+DROP TABLE IF EXISTS `chi_nhanh_thue_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chi_nhanh_thue_xe` (
+  `CNTX_MACNTX` int NOT NULL,
+  `CX_MACX` int NOT NULL,
+  `DUONG_MADUONG` char(4) NOT NULL,
+  `CNTX_SODIACHI` varchar(255) NOT NULL,
+  `CNTX_LONGTITUDE` double NOT NULL,
+  `CNTX_LATITUDE` double NOT NULL,
+  PRIMARY KEY (`CNTX_MACNTX`),
+  KEY `FK_RELATIONSHIP_19` (`DUONG_MADUONG`),
+  KEY `FK_RELATIONSHIP_20` (`CX_MACX`),
+  CONSTRAINT `FK_RELATIONSHIP_19` FOREIGN KEY (`DUONG_MADUONG`) REFERENCES `duong` (`DUONG_MADUONG`),
+  CONSTRAINT `FK_RELATIONSHIP_20` FOREIGN KEY (`CX_MACX`) REFERENCES `chu_xe` (`CX_MACX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chi_nhanh_thue_xe`
+--
+
+LOCK TABLES `chi_nhanh_thue_xe` WRITE;
+/*!40000 ALTER TABLE `chi_nhanh_thue_xe` DISABLE KEYS */;
+INSERT INTO `chi_nhanh_thue_xe` VALUES (1,1,'D001','12',105.7469,10.0452),(2,2,'D003','45/2',105.97,10.25),(3,3,'D005','78A',105.6655,10.2955),(4,4,'D245','122',105.76388256307395,10.01299722561479),(5,5,'D004','28/8',122,18),(6,6,'D001','4/6A',111,20),(7,4,'D593','22',105.76075738486728,10.064760405078806),(8,4,'D067','456',105.71512930412882,10.076783735745144),(9,7,'D685','77, Thuê xe Khang',105.77405549761924,10.032973881565129),(10,7,'D245','112, Thuê xe Khang 2',105.75824774701691,10.018197047450169);
+/*!40000 ALTER TABLE `chi_nhanh_thue_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `chu_xe`
+--
+
+DROP TABLE IF EXISTS `chu_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chu_xe` (
+  `CX_MACX` int NOT NULL,
+  `CX_HOTENCX` varchar(255) NOT NULL,
+  `CX_SODT` varchar(11) NOT NULL,
+  `CX_EMAIL` varchar(255) NOT NULL,
+  `CX_STK` varchar(50) NOT NULL,
+  `CX_NGANHANG` varchar(255) NOT NULL,
+  `CX_TENTAIKHOAN` varchar(255) NOT NULL,
+  `CX_MATKHAU` varchar(255) NOT NULL,
+  PRIMARY KEY (`CX_MACX`),
+  UNIQUE KEY `CX_TENTAIKHOAN_UNIQUE` (`CX_TENTAIKHOAN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chu_xe`
+--
+
+LOCK TABLES `chu_xe` WRITE;
+/*!40000 ALTER TABLE `chu_xe` DISABLE KEYS */;
+INSERT INTO `chu_xe` VALUES (1,'Nguyễn Văn A','0911111111','a@example.com','120034056789','Vietcombank','usera','passa'),(2,'Trần Văn B','0922222222','b@example.com','009876543021','Agribank','userb','passb'),(3,'Lê Thị C','0933333333','c@example.com','505508880999','Sacombank','userc','passc'),(4,'Nguyễn Huỳnh Thanh Hải','0911111112','d@example.com','000989675451','Nam Á Bank','userd','passd'),(5,'Lê Thị E','0922222224','e@example.com','004562562362','MBbank','usere','passe'),(6,'Trần Văn F','0933333335','f@example.com','123239090054','Viettinbank','userf','passf'),(7,'Nguyễn Duy Khang','0943613432','khangkhokhao687@gmail.com','0111232331424','Vietcombank','khang','$2b$10$5dkrFgqu1duCBYZ3JjTL/e3UVgbA90TmDomjAkppNshcVlNm85Jem');
+/*!40000 ALTER TABLE `chu_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dieu_khoan_su_dung_dv`
+--
+
+DROP TABLE IF EXISTS `dieu_khoan_su_dung_dv`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `dieu_khoan_su_dung_dv` (
+  `DKSDDV_MADKSDDV` int NOT NULL,
+  `DKSDDV_NOIDUNG` varchar(1024) NOT NULL,
+  `DKSDDV_NGAYGIOAPDUNG` datetime NOT NULL,
+  `DKSDDV_NGAYGIONGUNGAPDUNG` datetime DEFAULT NULL,
+  `CX_MACX` int DEFAULT NULL,
+  PRIMARY KEY (`DKSDDV_MADKSDDV`),
+  KEY `FK1_idx` (`CX_MACX`),
+  CONSTRAINT `FK1` FOREIGN KEY (`CX_MACX`) REFERENCES `chu_xe` (`CX_MACX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dieu_khoan_su_dung_dv`
+--
+
+LOCK TABLES `dieu_khoan_su_dung_dv` WRITE;
+/*!40000 ALTER TABLE `dieu_khoan_su_dung_dv` DISABLE KEYS */;
+INSERT INTO `dieu_khoan_su_dung_dv` VALUES (1,'Khách hàng phải trả xe đúng hạn','2025-09-23 14:17:44',NULL,NULL),(2,'Khách hàng chịu trách nhiệm khi gây hỏng hóc','2025-09-23 14:17:44',NULL,NULL),(3,'Không được cho thuê lại xe cho người khác','2025-09-23 14:17:44',NULL,NULL),(4,'Điều khoản 1','2025-11-15 15:05:27','2025-11-15 20:02:09',7),(5,'Điều khoản 2','2025-11-15 15:05:43','2025-11-15 20:02:12',7),(6,'Đảm bảo tình trạng xe nguyên vẹn như lúc mới thuê','2025-11-27 19:39:37',NULL,7),(7,'Thời gian nhận xe: 8:00 - 22:00','2025-11-28 08:32:17',NULL,NULL);
+/*!40000 ALTER TABLE `dieu_khoan_su_dung_dv` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `duong`
+--
+
+DROP TABLE IF EXISTS `duong`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `duong` (
+  `DUONG_MADUONG` char(4) NOT NULL,
+  `PHUONG_MAPHUONG` char(4) NOT NULL,
+  `DUONG_TENDUONG` varchar(255) NOT NULL,
+  PRIMARY KEY (`DUONG_MADUONG`),
+  KEY `FK_RELATIONSHIP_5` (`PHUONG_MAPHUONG`),
+  CONSTRAINT `FK_RELATIONSHIP_5` FOREIGN KEY (`PHUONG_MAPHUONG`) REFERENCES `phuong` (`PHUONG_MAPHUONG`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `duong`
+--
+
+LOCK TABLES `duong` WRITE;
+/*!40000 ALTER TABLE `duong` DISABLE KEYS */;
+INSERT INTO `duong` VALUES ('1157','1148','Huỳnh Phan Hộ'),('4350','1148','Võ Văn Kiệt'),('D001','P001','3/2'),('D002','P002','Nguyễn Văn Cừ'),('D003','P003','Trần Phú'),('D004','P004','Nguyễn Trãi'),('D005','P005','Hùng Vương'),('D067','P061','Võ Văn Kiệt'),('D245','P240','Trần Hoàng Na'),('D418','1148','Võ Nguyên Giáp'),('D593','P002','Cách Mạng Tháng 8'),('D685','P001','Đường Mậu Thân'),('D748','P743','Đường không rõ');
+/*!40000 ALTER TABLE `duong` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hang_xe`
+--
+
+DROP TABLE IF EXISTS `hang_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hang_xe` (
+  `HX_MAHANGXE` char(4) NOT NULL,
+  `HX_TENHANGXE` varchar(255) NOT NULL,
+  `HX_LINKHINH` varchar(999) DEFAULT NULL,
+  PRIMARY KEY (`HX_MAHANGXE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hang_xe`
+--
+
+LOCK TABLES `hang_xe` WRITE;
+/*!40000 ALTER TABLE `hang_xe` DISABLE KEYS */;
+INSERT INTO `hang_xe` VALUES ('H001','Toyota',NULL),('H002','Kia',NULL),('H003','Honda',NULL),('H004','BMW',NULL),('H005','Mercedes',NULL),('H006','Nissan',NULL),('H007','Audi',NULL),('H008','Vinfast',NULL);
+/*!40000 ALTER TABLE `hang_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hop_dong_thue`
+--
+
+DROP TABLE IF EXISTS `hop_dong_thue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hop_dong_thue` (
+  `KH_SOCCCD` char(12) NOT NULL,
+  `KH_SOGPLX` char(12) NOT NULL,
+  `XE_MAXE` char(5) NOT NULL,
+  `DKSDDV_MADKSDDV` int NOT NULL,
+  `CX_MACX` int NOT NULL,
+  `HDT_MAHDT` char(10) NOT NULL,
+  `HDT_NGAYGIOBDTHUE` datetime NOT NULL,
+  `HDT_NGAYGIOKTTHUE` datetime NOT NULL,
+  `HDT_CHITIETHD` varchar(1024) NOT NULL,
+  `HDT_NGAYGIOLAPHOPDONG` datetime NOT NULL,
+  PRIMARY KEY (`KH_SOCCCD`,`KH_SOGPLX`,`XE_MAXE`,`DKSDDV_MADKSDDV`,`CX_MACX`,`HDT_MAHDT`),
+  KEY `FK_RELATIONSHIP_15` (`CX_MACX`),
+  KEY `FK_RELATIONSHIP_2` (`XE_MAXE`),
+  KEY `FK_RELATIONSHIP_22` (`DKSDDV_MADKSDDV`),
+  CONSTRAINT `FK_RELATIONSHIP_1` FOREIGN KEY (`KH_SOCCCD`, `KH_SOGPLX`) REFERENCES `khach_hang` (`KH_SOCCCD`, `KH_SOGPLX`),
+  CONSTRAINT `FK_RELATIONSHIP_15` FOREIGN KEY (`CX_MACX`) REFERENCES `chu_xe` (`CX_MACX`),
+  CONSTRAINT `FK_RELATIONSHIP_2` FOREIGN KEY (`XE_MAXE`) REFERENCES `xe` (`XE_MAXE`),
+  CONSTRAINT `FK_RELATIONSHIP_22` FOREIGN KEY (`DKSDDV_MADKSDDV`) REFERENCES `dieu_khoan_su_dung_dv` (`DKSDDV_MADKSDDV`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hop_dong_thue`
+--
+
+LOCK TABLES `hop_dong_thue` WRITE;
+/*!40000 ALTER TABLE `hop_dong_thue` DISABLE KEYS */;
+INSERT INTO `hop_dong_thue` VALUES ('092203007918','112233445566','X001',1,1,'HDT1419640','2025-10-28 15:50:00','2025-10-29 15:50:00','Thuê Toyota Vios 2021 (X001) - 1 ngày - Tổng 800.000đ','2025-10-28 15:50:19'),('092203007918','112233445566','X001',1,1,'HDT2141171','2025-10-27 15:02:00','2025-10-28 15:02:00','Thuê Toyota Vios 2021 (X001) - 1 ngày - Tổng 800.000đ','2025-10-27 15:02:21'),('092203007918','112233445566','X0030',1,7,'HDT5435514','2025-11-17 00:00:00','2025-11-22 23:59:59','Thuê Kia Morning 2019 (X0030) - 6 ngày - Tổng 3.000.000đ','2025-11-15 15:30:35'),('092203007918','112233445566','X0030',1,7,'HDT5855204','2025-11-24 00:00:00','2025-11-25 23:59:59','Thuê Kia Morning 2019 (X0030) - 2 ngày - Tổng 1.000.000đ','2025-11-15 15:37:35'),('092203007918','112233445566','X0031',1,7,'HDT1203564','2025-11-24 00:00:00','2025-11-28 23:59:59','Thuê BMW 3 Series 2025 (X0031) - 5 ngày - Tổng 12.500.000đ','2025-11-23 19:33:23'),('092203007918','112233445566','X0033',1,7,'HDT6579611','2025-12-08 00:00:00','2025-12-11 23:59:59','Thuê BMW 3 Series 2025 (X0033) - 4 ngày - Tổng 8.000.000đ','2025-11-28 14:56:19'),('092203007918','112233445566','X004',1,1,'HDT1459454','2025-10-31 10:30:00','2025-11-01 10:30:00','Thuê Toyota Fortuner 2011 (X004) - 1 ngày - Tổng 1.200.000đ','2025-10-31 10:30:59'),('092203007918','112233445566','X004',1,4,'HDT6635474','2025-11-01 10:08:00','2025-11-02 10:08:00','Thuê Toyota Fortuner 2011 (X004) - 1 ngày - Tổng 1.200.000đ','2025-11-01 10:10:35'),('092203007918','112233445566','X004',1,4,'HDT9011150','2025-11-04 08:16:00','2025-11-05 08:16:00','Thuê Toyota Fortuner 2011 (X004) - 1 ngày - Tổng 1.200.000đ','2025-11-04 08:16:51'),('092203007918','112233445566','X008',1,3,'HDT7296069','2025-12-08 00:00:00','2025-12-12 23:59:59','Thuê Kia Morning 2019 (X008) - 5 ngày - Tổng 2.750.000đ','2025-11-29 07:48:16'),('092203007918','112233445566','X012',1,1,'HDT5899866','2025-10-27 16:03:00','2025-10-31 16:03:00','Thuê Kia Morning 2021 (X012) - 4 ngày - Tổng 4.800.000đ','2025-10-27 16:04:59'),('092203007918','112233445566','X012',1,1,'HDT6835521','2025-10-29 09:58:00','2025-10-30 09:58:00','Thuê Kia Morning 2021 (X012) - 1 ngày - Tổng 1.200.000đ','2025-10-29 10:00:35'),('092203007918','112233445566','X012',1,1,'HDT7600609','2025-10-29 10:13:00','2025-10-30 10:13:00','Thuê Kia Morning 2021 (X012) - 1 ngày - Tổng 1.200.000đ','2025-10-29 10:13:20'),('092203007918','112233445566','X014',1,3,'HDT0745113','2025-10-28 15:31:00','2025-10-31 15:31:00','Thuê Honda Civic 2023 (X014) - 3 ngày - Tổng 2.820.000đ','2025-10-28 15:39:05'),('092203007918','112233445566','X017',1,4,'HDT5255566','2025-11-01 15:20:00','2025-11-02 15:20:00','Thuê Toyota Vios 2021 (X017) - 1 ngày - Tổng 720.000đ','2025-10-01 15:20:55'),('092203007918','112233445566','X023',1,4,'HDT5251623','2025-11-05 00:00:00','2025-11-06 23:59:59','Thuê Toyota Fortuner 2022 (X023) - 2 ngày - Tổng 1.480.000đ','2025-10-04 21:07:31'),('092203007918','112233445566','X023',1,4,'HDT5677860','2025-11-16 00:00:00','2025-11-19 23:59:59','Thuê Toyota Fortuner 2022 (X023) - 4 ngày - Tổng 2.960.000đ','2025-09-04 21:14:37');
+/*!40000 ALTER TABLE `hop_dong_thue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `khach_hang`
+--
+
+DROP TABLE IF EXISTS `khach_hang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `khach_hang` (
+  `KH_SOCCCD` char(12) NOT NULL,
+  `KH_SOGPLX` char(12) NOT NULL,
+  `KH_TENND` varchar(255) NOT NULL,
+  `KH_GIOITINH` varchar(4) NOT NULL,
+  `KH_NGAYSINH` datetime NOT NULL,
+  `KH_TENTAIKHOAN` varchar(255) NOT NULL,
+  `KH_MATKHAU` varchar(255) NOT NULL,
+  `KH_SODIENTHOAI` varchar(11) NOT NULL,
+  `KH_EMAIL` varchar(45) NOT NULL,
+  `KH_SOTK` varchar(45) NOT NULL,
+  `KH_TENNGANHANG` varchar(45) NOT NULL,
+  PRIMARY KEY (`KH_SOCCCD`,`KH_SOGPLX`),
+  UNIQUE KEY `KH_SOCCCD_UNIQUE` (`KH_SOCCCD`),
+  UNIQUE KEY `KH_SOGPLX_UNIQUE` (`KH_SOGPLX`),
+  UNIQUE KEY `KH_TENTAIKHOAN_UNIQUE` (`KH_TENTAIKHOAN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khach_hang`
+--
+
+LOCK TABLES `khach_hang` WRITE;
+/*!40000 ALTER TABLE `khach_hang` DISABLE KEYS */;
+INSERT INTO `khach_hang` VALUES ('092203007918','112233445566','Nguyễn Duy Khang','Nam','2003-02-28 00:00:00','khang','$2b$10$dqo6pqEO9CARRiMms3fEDecfCt37mqogp5.5BslEPUvobXf8XHyYG','0943613432','khangkhokhao687@gmail.com','1122331123','Vietcombank'),('111222333444','555666777888','Lê Thị D','Nữ','1998-10-12 00:00:00','userd','passd','0999999999','ddd@gmail.com','',''),('123456789012','987654321000','Nguyễn Văn C','Nam','1995-05-20 00:00:00','userc','passc','0888888888','ccc@gmailcom','',''),('999888777666','444333222111','Phạm Văn E','Nam','1990-01-15 00:00:00','usere','passe','0777777777','eee@gmail.com','','');
+/*!40000 ALTER TABLE `khach_hang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `model`
+--
+
+DROP TABLE IF EXISTS `model`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `model` (
+  `MODEL_MAMODEL` int NOT NULL,
+  `HX_MAHANGXE` char(4) NOT NULL,
+  `MODEL_TENMODEL` varchar(255) NOT NULL,
+  `MODEL_TRUYENDONG` varchar(255) NOT NULL,
+  `MODEL_SOGHE` int NOT NULL,
+  `MODEL_NHIENLIEU` varchar(255) NOT NULL,
+  `MODEL_TIEUHAO` varchar(255) NOT NULL,
+  PRIMARY KEY (`MODEL_MAMODEL`),
+  KEY `FK_RELATIONSHIP_21` (`HX_MAHANGXE`),
+  CONSTRAINT `FK_RELATIONSHIP_21` FOREIGN KEY (`HX_MAHANGXE`) REFERENCES `hang_xe` (`HX_MAHANGXE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `model`
+--
+
+LOCK TABLES `model` WRITE;
+/*!40000 ALTER TABLE `model` DISABLE KEYS */;
+INSERT INTO `model` VALUES (1,'H001','Vios 2021','Số tự động',5,'Xăng','6L/100km'),(2,'H002','Morning 2019','Số sàn',5,'Xăng','5L/100km'),(3,'H003','City 2019','Số tự động',5,'Xăng','6.5L/100km'),(4,'H001','Fortuner 2011','Số tự động',7,'Dầu','8L/100km'),(5,'H002','Rio 2015','Số sàn',5,'Xăng','6.5L/100km'),(6,'H003','Civic 2019','Số tự động',5,'Xăng','7L/100km'),(7,'H001','Innova 2019','Số tự động',7,'Xăng','10L/100km'),(8,'H001','Fortuner 2022','Số sàn',7,'Dầu','6L/100km'),(9,'H001','Vios 2023','Số tự động',5,'Xăng','6L/100km'),(10,'H002','Morning 2021','Số tự động',5,'Xăng','5L/100km'),(11,'H003','City 2024','Số tự động',5,'Xăng','6L/100km'),(12,'H003','Civic 2023','Số tự động',5,'Xăng','7L/100km'),(13,'H004','3 Series 2025','Số tự động',5,'Xăng','7.05L/100km'),(14,'H005','c300 2025','Số tự động',5,'Xăng','7.5L/100km'),(15,'H004','5 Series 2025','Số tự động',5,'Xăng','7.5L/100km');
+/*!40000 ALTER TABLE `model` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `phuong`
+--
+
+DROP TABLE IF EXISTS `phuong`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `phuong` (
+  `PHUONG_MAPHUONG` char(4) NOT NULL,
+  `TP_MATP` char(4) NOT NULL,
+  `PHUONG_TENPHUONG` varchar(255) NOT NULL,
+  PRIMARY KEY (`PHUONG_MAPHUONG`),
+  KEY `FK_RELATIONSHIP_23` (`TP_MATP`),
+  CONSTRAINT `FK_RELATIONSHIP_23` FOREIGN KEY (`TP_MATP`) REFERENCES `thanh_pho` (`TP_MATP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `phuong`
+--
+
+LOCK TABLES `phuong` WRITE;
+/*!40000 ALTER TABLE `phuong` DISABLE KEYS */;
+INSERT INTO `phuong` VALUES ('1148','TP01','Phường không rõ'),('P001','TP01','Ninh Kiều'),('P002','TP01','Bình Thủy'),('P003','TP02','Phường 1'),('P004','TP03','Long Xuyên'),('P005','TP04','Sa Đéc'),('P061','TP01','Phường Long Tuyền'),('P240','TP01','Phường Tân An'),('P743','TP01','Phường Cái Răng');
+/*!40000 ALTER TABLE `phuong` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `quan_tam`
+--
+
+DROP TABLE IF EXISTS `quan_tam`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `quan_tam` (
+  `KH_SOCCCD` char(12) NOT NULL,
+  `KH_SOGPLX` char(12) NOT NULL,
+  `XE_MAXE` char(5) NOT NULL,
+  `QT_THOIDIEMXEM` datetime NOT NULL,
+  PRIMARY KEY (`KH_SOCCCD`,`KH_SOGPLX`,`XE_MAXE`,`QT_THOIDIEMXEM`),
+  KEY `FK_RELATIONSHIP_10` (`XE_MAXE`),
+  CONSTRAINT `FK_RELATIONSHIP_10` FOREIGN KEY (`XE_MAXE`) REFERENCES `xe` (`XE_MAXE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `quan_tam`
+--
+
+LOCK TABLES `quan_tam` WRITE;
+/*!40000 ALTER TABLE `quan_tam` DISABLE KEYS */;
+INSERT INTO `quan_tam` VALUES ('092203007918','112233445566','X001','2025-11-27 22:10:27'),('092203007918','112233445566','X001','2025-11-29 09:44:10'),('092203007918','112233445566','X002','2025-11-17 09:38:12'),('092203007918','112233445566','X0029','2025-11-27 22:07:49'),('092203007918','112233445566','X0030','2025-11-17 10:34:43'),('092203007918','112233445566','X0031','2025-11-27 22:24:49'),('092203007918','112233445566','X0031','2025-11-27 22:40:57'),('092203007918','112233445566','X0031','2025-11-29 09:42:15'),('092203007918','112233445566','X0031','2025-11-29 09:42:25'),('092203007918','112233445566','X0031','2025-11-29 09:42:29'),('092203007918','112233445566','X0032','2025-11-27 22:25:01'),('092203007918','112233445566','X0032','2025-11-27 22:41:07'),('092203007918','112233445566','X0032','2025-11-27 22:41:11'),('092203007918','112233445566','X0032','2025-11-27 22:41:15'),('092203007918','112233445566','X0032','2025-11-27 22:41:20'),('092203007918','112233445566','X0032','2025-11-27 22:41:24'),('092203007918','112233445566','X0032','2025-11-27 22:41:29'),('092203007918','112233445566','X0033','2025-11-27 22:25:07'),('092203007918','112233445566','X0033','2025-11-27 22:41:09'),('092203007918','112233445566','X0033','2025-11-27 22:41:13'),('092203007918','112233445566','X0033','2025-11-27 22:41:17'),('092203007918','112233445566','X0033','2025-11-27 22:41:22'),('092203007918','112233445566','X0033','2025-11-27 22:41:27'),('092203007918','112233445566','X0033','2025-11-28 14:54:55'),('092203007918','112233445566','X0033','2025-11-28 14:56:24'),('092203007918','112233445566','X0033','2025-11-28 14:57:13'),('092203007918','112233445566','X0033','2025-11-28 15:41:24'),('092203007918','112233445566','X004','2025-11-27 22:07:41'),('092203007918','112233445566','X004','2025-11-29 09:32:04'),('092203007918','112233445566','X004','2025-11-29 09:32:15'),('092203007918','112233445566','X004','2025-11-29 09:32:21'),('111222333444','555666777888','X004','2025-10-23 11:30:44'),('092203007918','112233445566','X005','2025-11-18 09:46:12'),('092203007918','112233445566','X007','2025-11-27 22:10:24'),('111222333444','555666777888','X007','2025-10-23 15:01:52'),('092203007918','112233445566','X008','2025-11-17 10:34:38'),('092203007918','112233445566','X008','2025-11-29 07:47:37'),('092203007918','112233445566','X009','2025-11-27 22:07:54'),('092203007918','112233445566','X010','2025-11-27 22:07:34'),('092203007918','112233445566','X010','2025-11-29 09:32:13'),('092203007918','112233445566','X010','2025-11-29 09:32:17'),('092203007918','112233445566','X010','2025-11-29 09:44:14'),('092203007918','112233445566','X010','2025-11-29 09:44:18'),('092203007918','112233445566','X011','2025-10-29 10:44:09'),('092203007918','112233445566','X012','2025-11-18 09:45:50'),('092203007918','112233445566','X013','2025-11-27 22:07:38'),('092203007918','112233445566','X013','2025-11-29 09:32:10'),('092203007918','112233445566','X013','2025-11-29 09:44:16'),('092203007918','112233445566','X013','2025-11-29 09:44:24'),('092203007918','112233445566','X014','2025-11-27 22:07:47'),('092203007918','112233445566','X015','2025-11-27 22:24:40'),('092203007918','112233445566','X015','2025-11-29 09:32:06'),('092203007918','112233445566','X015','2025-11-29 09:32:19'),('092203007918','112233445566','X015','2025-11-29 09:44:12'),('092203007918','112233445566','X015','2025-11-29 09:44:20'),('092203007918','112233445566','X016','2025-11-27 22:07:51'),('092203007918','112233445566','X017','2025-11-27 22:24:43'),('092203007918','112233445566','X017','2025-11-27 22:40:41'),('092203007918','112233445566','X017','2025-11-29 09:44:08'),('092203007918','112233445566','X018','2025-11-27 22:08:47'),('092203007918','112233445566','X019','2025-11-27 22:24:36'),('092203007918','112233445566','X019','2025-11-29 09:42:19'),('092203007918','112233445566','X020','2025-11-18 09:45:44'),('092203007918','112233445566','X021','2025-11-01 09:32:33'),('092203007918','112233445566','X022','2025-11-18 09:46:16'),('092203007918','112233445566','X022','2025-11-28 14:54:33'),('092203007918','112233445566','X023','2025-11-27 22:10:38'),('092203007918','112233445566','X023','2025-11-29 09:32:01'),('092203007918','112233445566','X023','2025-11-29 09:44:22'),('092203007918','112233445566','X024','2025-10-31 11:33:15');
+/*!40000 ALTER TABLE `quan_tam` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `thanh_pho`
+--
+
+DROP TABLE IF EXISTS `thanh_pho`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `thanh_pho` (
+  `TP_MATP` char(4) NOT NULL,
+  `TP_TENTP` varchar(255) NOT NULL,
+  PRIMARY KEY (`TP_MATP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `thanh_pho`
+--
+
+LOCK TABLES `thanh_pho` WRITE;
+/*!40000 ALTER TABLE `thanh_pho` DISABLE KEYS */;
+INSERT INTO `thanh_pho` VALUES ('TP01','Cần Thơ'),('TP02','Vĩnh Long'),('TP03','An Giang'),('TP04','Đồng Tháp'),('TP05','Bến Tre');
+/*!40000 ALTER TABLE `thanh_pho` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tien_ich_xe`
+--
+
+DROP TABLE IF EXISTS `tien_ich_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tien_ich_xe` (
+  `XE_MAXE` char(5) NOT NULL,
+  `TIX_NGAYGIOCAPNHAT` datetime NOT NULL,
+  `TIX_NGAYGIODANGKIEM` datetime NOT NULL,
+  `TIX_BANDO` tinyint(1) DEFAULT NULL,
+  `TIX_BLUETOOTH` tinyint(1) DEFAULT NULL,
+  `TIX_CAMERAHANHTRINH` tinyint(1) DEFAULT NULL,
+  `TIX_CAMERALUI` tinyint(1) DEFAULT NULL,
+  `TIX_CAMBIENVACHAM` tinyint(1) DEFAULT NULL,
+  `TIX_CANHBAOTOCDO` tinyint(1) DEFAULT NULL,
+  `TIX_DINHVIGPS` tinyint(1) DEFAULT NULL,
+  `TIX_KHECAMUSB` tinyint(1) DEFAULT NULL,
+  `TIX_LOPDUPHONG` tinyint(1) DEFAULT NULL,
+  `TIX_MANHINHDVD` tinyint(1) DEFAULT NULL,
+  `TIX_ETC` tinyint(1) DEFAULT NULL,
+  `TIX_TUIKHIANTOAN` tinyint(1) DEFAULT NULL,
+  `TIX_LINKHINH` varchar(999) DEFAULT NULL,
+  PRIMARY KEY (`XE_MAXE`),
+  CONSTRAINT `FK_RELATIONSHIP_25` FOREIGN KEY (`XE_MAXE`) REFERENCES `xe` (`XE_MAXE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tien_ich_xe`
+--
+
+LOCK TABLES `tien_ich_xe` WRITE;
+/*!40000 ALTER TABLE `tien_ich_xe` DISABLE KEYS */;
+INSERT INTO `tien_ich_xe` VALUES ('X001','2025-09-23 14:17:44','2025-09-23 14:17:44',1,1,1,1,0,1,1,0,1,1,1,1,'uploads\\Toyota\\Vios\\Vios 2021'),('X002','2025-09-23 14:17:44','2025-09-23 14:17:44',0,1,0,1,1,0,1,1,0,0,1,1,'uploads\\Kia\\Morning\\Morning 2019'),('X0029','2025-11-23 15:47:55','2025-11-14 15:17:24',1,1,1,1,1,1,1,1,1,0,0,0,'uploads/Honda/Civic/Civic 2023/X0029'),('X003','2025-09-23 14:17:44','2025-09-23 14:17:44',1,0,1,0,1,1,0,1,1,0,1,1,'uploads\\Honda\\City\\City 2019'),('X0030','2025-11-16 19:42:13','2025-11-14 16:10:47',1,1,1,1,1,1,1,1,1,0,0,0,'uploads/Kia/Morning/Morning 2019/X0030'),('X0031','2025-11-23 15:36:46','2025-11-23 15:36:29',1,1,1,1,1,1,1,1,1,1,1,1,'uploads/BMW/3/3 Series 2025/X0031'),('X0032','2025-11-23 19:15:01','2025-11-23 19:15:01',1,1,1,1,1,1,1,1,1,1,1,1,'uploads/BMW/3/3 Series 2025/X0032'),('X0033','2025-11-23 19:20:10','2025-11-23 19:20:10',1,1,1,1,1,1,1,1,1,1,1,1,'uploads/BMW/3/3 Series 2025/X0033'),('X004','2025-09-23 14:19:05','2025-09-23 14:19:05',1,1,1,1,1,1,1,1,1,1,1,1,'uploads\\Toyota\\Fortuner\\Fortuner 2011'),('X005','2025-09-23 14:19:05','2025-09-23 14:19:05',0,1,0,0,0,0,1,1,0,0,0,1,'uploads\\Kia\\Rio\\Rio 2015'),('X006','2025-09-23 14:19:05','2025-09-23 14:19:05',1,1,1,0,1,1,1,0,1,1,0,1,'uploads\\Honda\\Civic\\Civic 2019'),('X007','2025-09-23 14:19:05','2025-09-23 14:19:05',1,0,0,1,0,1,0,1,1,0,1,1,'uploads\\Toyota\\Vios\\Vios 2023'),('X008','2025-09-23 14:19:05','2025-09-23 14:19:05',0,0,1,0,1,0,1,0,1,1,0,1,'uploads\\Kia\\Morning\\Morning 2021'),('X009','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Honda/City/City 2019/X009'),('X010','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,1,0,0,1,1,0,0,0,1,'uploads/Toyota/Fortuner/Fortuner 2022/X010'),('X011','2025-10-08 15:02:14','2025-10-08 15:02:14',1,0,1,1,0,1,1,1,1,1,0,1,'uploads/Kia/Morning/Morning 2019/X011'),('X012','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,1,1,1,1,1,0,1,1,'uploads/Kia/Morning/Morning 2021/X012'),('X013','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,0,0,0,1,1,0,0,0,1,'uploads/Toyota/Innova/Innova 2019/X013'),('X014','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Honda/Civic/Civic 2023/X014'),('X015','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Toyota/Fortuner/Fortuner 2011/X015'),('X016','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,1,0,0,1,1,0,0,0,1,'uploads/Honda/Civic/Civic 2019/X016'),('X017','2025-10-08 15:02:14','2025-10-08 15:02:14',1,0,1,1,0,1,1,1,1,1,0,1,'uploads/Toyota/Vios/Vios 2021/X017'),('X018','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,1,1,1,1,1,0,1,1,'uploads/Toyota/Vios/Vios 2023/X018'),('X019','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,0,0,0,1,1,0,0,0,1,'uploads/Honda/City/City 2024/X019'),('X020','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Kia/Rio/Rio 2015/X020'),('X021','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Kia/Morning/Morning 2019/X021'),('X022','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,1,0,0,1,1,0,0,0,1,'uploads/Kia/Morning/Morning 2021/X022'),('X023','2025-10-08 15:02:14','2025-10-08 15:02:14',1,0,1,1,0,1,1,1,1,1,0,1,'uploads/Toyota/Fortuner/Fortuner 2022/X023'),('X024','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,1,1,1,1,1,0,1,1,'uploads/Toyota/Vios/Vios 2021/X024'),('X025','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,0,0,0,1,1,0,0,0,1,'uploads/Toyota/Vios/Vios 2023/X025'),('X026','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Honda/Civic/Civic 2023/X026'),('X027','2025-10-08 15:02:14','2025-10-08 15:02:14',1,1,1,1,0,1,1,1,1,0,0,1,'uploads/Toyota/Innova/Innova 2019/X027'),('X028','2025-10-08 15:02:14','2025-10-08 15:02:14',0,1,0,1,0,0,1,1,0,0,0,1,'uploads/Kia/Rio/Rio 2015/X028');
+/*!40000 ALTER TABLE `tien_ich_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tinh_trang_xe`
+--
+
+DROP TABLE IF EXISTS `tinh_trang_xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tinh_trang_xe` (
+  `TTX_MATTX` int NOT NULL,
+  `TTX_TENTINHTRANG` varchar(255) NOT NULL,
+  PRIMARY KEY (`TTX_MATTX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tinh_trang_xe`
+--
+
+LOCK TABLES `tinh_trang_xe` WRITE;
+/*!40000 ALTER TABLE `tinh_trang_xe` DISABLE KEYS */;
+INSERT INTO `tinh_trang_xe` VALUES (1,'Sẵn sàng'),(2,'Đang thuê'),(3,'Bảo dưỡng');
+/*!40000 ALTER TABLE `tinh_trang_xe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `xe`
+--
+
+DROP TABLE IF EXISTS `xe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `xe` (
+  `XE_MAXE` char(5) NOT NULL,
+  `MODEL_MAMODEL` int NOT NULL,
+  `XE_BIENSOXE` varchar(8) NOT NULL,
+  PRIMARY KEY (`XE_MAXE`),
+  KEY `FK_RELATIONSHIP_7` (`MODEL_MAMODEL`),
+  CONSTRAINT `FK_RELATIONSHIP_7` FOREIGN KEY (`MODEL_MAMODEL`) REFERENCES `model` (`MODEL_MAMODEL`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xe`
+--
+
+LOCK TABLES `xe` WRITE;
+/*!40000 ALTER TABLE `xe` DISABLE KEYS */;
+INSERT INTO `xe` VALUES ('X001',1,'65A12345'),('X002',2,'65B67890'),('X0029',12,'65A12345'),('X003',3,'66C54321'),('X0030',2,'65A12333'),('X0031',13,'51A10998'),('X0032',13,'50A91882'),('X0033',13,'51A65112'),('X004',4,'65A54321'),('X005',5,'66B11223'),('X006',6,'67C44556'),('X007',1,'65D77889'),('X008',2,'66E99001'),('X009',3,'65A88888'),('X010',8,'66B99999'),('X011',2,'64C11111'),('X012',10,'67D22222'),('X013',7,'71E33333'),('X014',12,'68F44444'),('X015',4,'72G55555'),('X016',6,'62H66666'),('X017',1,'63I77777'),('X018',9,'69J88888'),('X019',11,'83K99999'),('X020',5,'84L10101'),('X021',2,'70M20202'),('X022',10,'73N30303'),('X023',8,'65O40404'),('X024',1,'67P50505'),('X025',9,'66Q60606'),('X026',12,'64R70707'),('X027',7,'68S80808'),('X028',5,'71T90909');
+/*!40000 ALTER TABLE `xe` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-12-05  8:51:15
