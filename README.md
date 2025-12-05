@@ -107,7 +107,6 @@ Phần này mô tả sơ lược cách dùng:
 
 *(Ông có thể thêm ảnh chụp màn hình giao diện ở đây sau)*
 
-<p align="right">(<a href="#readme-top">quay về đầu trang</a>)</p>
 
 ## Lộ Trình Phát Triển
 
